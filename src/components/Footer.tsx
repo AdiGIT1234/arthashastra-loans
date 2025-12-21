@@ -9,7 +9,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Arthashastra" className="w-10 h-10" />
+              <img src={logo} alt="Arthashastra" className="w-10 h-10 object-cover object-center rounded-full" />
               <span className="font-heading text-xl font-semibold">Arthashastra</span>
             </div>
             <p className="text-secondary-foreground/70 text-sm max-w-md">

@@ -73,7 +73,7 @@ const Login = () => {
 
         {/* Logo and Brand */}
         <div className="text-center mb-8">
-          <img src={logo} alt="Arthashastra" className="w-20 h-20 mx-auto mb-4 animate-float" />
+          <img src={logo} alt="Arthashastra" className="w-24 h-24 mx-auto mb-4 animate-float object-cover object-center rounded-full" />
           <h1 className="font-heading text-3xl font-bold text-foreground">Arthashastra</h1>
           <p className="text-muted-foreground mt-2">Smart Loan Eligibility & Recommendations</p>
         </div>
