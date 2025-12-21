@@ -32,7 +32,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Arthashastra" className="w-10 h-10" />
+            <img src={logo} alt="Arthashastra" className="w-10 h-10 object-cover object-center rounded-full" />
             <span className="font-heading text-xl font-semibold text-foreground hidden sm:block">
               Arthashastra
             </span>
