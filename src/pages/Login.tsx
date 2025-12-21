@@ -47,18 +47,15 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-gradient-subtle">
       {/* Background with translucent logo */}
-      <div 
-        className="absolute inset-0 bg-gradient-subtle"
-        style={{
-          backgroundImage: `url(${logo})`,
-          backgroundSize: "400px",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.08,
-        }}
-      />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <img 
+          src={logo} 
+          alt="" 
+          className="w-[600px] h-[600px] object-cover opacity-10"
+        />
+      </div>
       
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
