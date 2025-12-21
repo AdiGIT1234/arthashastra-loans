@@ -140,7 +140,7 @@ const LoanProducts = () => {
                         </Button>
                       </Link>
                       <Link to="/compare">
-                        <Button variant="outline-gold" size="sm">
+                        <Button variant="outline-primary" size="sm">
                           Compare Options
                         </Button>
                       </Link>

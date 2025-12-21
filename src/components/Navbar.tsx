@@ -85,7 +85,7 @@ export const Navbar = () => {
             </div>
 
             <Link to="/login" className="hidden sm:block">
-              <Button variant="outline-gold" size="sm">
+              <Button variant="outline-primary" size="sm">
                 Login
               </Button>
             </Link>
@@ -117,7 +117,7 @@ export const Navbar = () => {
                 </Link>
               ))}
               <Link to="/login" onClick={() => setIsOpen(false)}>
-                <Button variant="outline-gold" className="w-full mt-2">
+                <Button variant="outline-primary" className="w-full mt-2">
                   Login
                 </Button>
               </Link>
