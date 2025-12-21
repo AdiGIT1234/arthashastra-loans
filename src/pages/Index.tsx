@@ -78,7 +78,7 @@ const Index = () => {
         <div className="container mx-auto text-center max-w-3xl">
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
             Find the Right Loan for You —{" "}
-            <span className="text-gradient-gold">Clearly & Confidently</span>
+            <span className="text-gradient-primary">Clearly & Confidently</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
             Transparent eligibility checks and EMI-based recommendations 
@@ -92,7 +92,7 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/loan-products">
-              <Button variant="outline-gold" size="xl">
+              <Button variant="outline-primary" size="xl">
                 Explore Loan Products
               </Button>
             </Link>

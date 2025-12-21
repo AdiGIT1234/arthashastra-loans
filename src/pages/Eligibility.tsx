@@ -324,7 +324,7 @@ const Eligibility = () => {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button variant="outline-gold" className="flex-1" onClick={() => setResult(null)}>
+                <Button variant="outline-primary" className="flex-1" onClick={() => setResult(null)}>
                   Check Again
                 </Button>
                 <Button variant="hero" className="flex-1" asChild>
