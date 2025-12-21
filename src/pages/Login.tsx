@@ -48,18 +48,47 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-gradient-subtle">
-      {/* Background with translucent logo */}
+      {/* Symmetric logo pattern background */}
+      {/* Center large logo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img 
           src={logo} 
           alt="" 
-          className="w-[600px] h-[600px] object-cover opacity-10"
+          className="w-[500px] h-[500px] object-cover opacity-[0.15]"
         />
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      {/* Top left logo */}
+      <img 
+        src={logo} 
+        alt="" 
+        className="absolute -top-20 -left-20 w-64 h-64 object-cover opacity-20 pointer-events-none"
+      />
+      
+      {/* Top right logo */}
+      <img 
+        src={logo} 
+        alt="" 
+        className="absolute -top-20 -right-20 w-64 h-64 object-cover opacity-20 pointer-events-none"
+      />
+      
+      {/* Bottom left logo */}
+      <img 
+        src={logo} 
+        alt="" 
+        className="absolute -bottom-20 -left-20 w-64 h-64 object-cover opacity-20 pointer-events-none"
+      />
+      
+      {/* Bottom right logo */}
+      <img 
+        src={logo} 
+        alt="" 
+        className="absolute -bottom-20 -right-20 w-64 h-64 object-cover opacity-20 pointer-events-none"
+      />
+      
+      {/* Decorative blur elements */}
+      <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Back to Home */}
