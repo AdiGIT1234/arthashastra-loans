@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['Playfair Display', 'serif'],
+        body: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,30 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gold: {
+          50: "hsl(40 60% 97%)",
+          100: "hsl(38 55% 92%)",
+          200: "hsl(36 50% 85%)",
+          300: "hsl(36 55% 72%)",
+          400: "hsl(36 65% 58%)",
+          500: "hsl(36 72% 45%)",
+          600: "hsl(36 75% 38%)",
+          700: "hsl(36 70% 30%)",
+          800: "hsl(36 60% 24%)",
+          900: "hsl(36 50% 18%)",
+        },
+        navy: {
+          50: "hsl(220 30% 95%)",
+          100: "hsl(220 28% 88%)",
+          200: "hsl(220 26% 75%)",
+          300: "hsl(220 28% 58%)",
+          400: "hsl(220 35% 42%)",
+          500: "hsl(220 45% 30%)",
+          600: "hsl(220 50% 20%)",
+          700: "hsl(220 55% 15%)",
+          800: "hsl(220 55% 12%)",
+          900: "hsl(220 55% 8%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +93,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
       },
     },
   },
