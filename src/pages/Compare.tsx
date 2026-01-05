@@ -27,33 +27,40 @@ interface StatProps {
   primary?: boolean;
 }
 
+/* ---------------- CONSTANT ---------------- */
+const BACKEND_COMPARE_URL =
+  "http://localhost:8000/compare";
+
 /* ---------------- COMPONENT ---------------- */
 const Compare = () => {
-  const [loanAmount, setLoanAmount] = useState<number>(500000);
-  const [tenure, setTenure] = useState<number>(36);
+  const [loanAmount, setLoanAmount] = useState(500000);
+  const [tenure, setTenure] = useState(36);
   const [comparisons, setComparisons] = useState<LoanComparison[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   /* ---------------- FETCH FROM BACKEND ---------------- */
   useEffect(() => {
     const fetchComparisons = async () => {
       setLoading(true);
+      setError(null);
 
       try {
         const res = await fetch(
-          `http://localhost:8000/compare?amount=${loanAmount}&tenure=${tenure}`
+          `${BACKEND_COMPARE_URL}?amount=${loanAmount}&tenure=${tenure}`
         );
 
-        if (!res.ok) {
-          throw new Error(`HTTP error: ${res.status}`);
+        const data = await res.json();
+
+        // 🔒 STRICT BACKEND CONTRACT (MATCHES YOUR RESPONSE)
+        if (!data || !Array.isArray(data.comparisons)) {
+          throw new Error("Invalid backend response");
         }
 
-        const data: { comparisons?: LoanComparison[] } = await res.json();
-        console.log("API response:", data);
-
-        setComparisons(Array.isArray(data.comparisons) ? data.comparisons : []);
+        setComparisons(data.comparisons);
       } catch (err) {
-        console.error("Failed to fetch comparisons:", err);
+        console.error("Compare fetch failed:", err);
+        setError("Unable to fetch loan comparisons from backend.");
         setComparisons([]);
       } finally {
         setLoading(false);
@@ -103,7 +110,7 @@ const Compare = () => {
               {/* Loan Amount */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <Label className="text-base">Loan Amount</Label>
+                  <Label>Loan Amount</Label>
                   <span className="text-xl font-semibold text-primary">
                     {formatCurrency(loanAmount)}
                   </span>
@@ -120,7 +127,7 @@ const Compare = () => {
               {/* Tenure */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <Label className="text-base">Loan Tenure</Label>
+                  <Label>Loan Tenure</Label>
                   <span className="text-xl font-semibold text-primary">
                     {tenure} months ({(tenure / 12).toFixed(1)} years)
                   </span>
@@ -149,13 +156,13 @@ const Compare = () => {
               </p>
             )}
 
-            {!loading && comparisons.length === 0 && (
-              <p className="text-center text-muted-foreground">
-                No loan options available for the selected parameters.
+            {error && (
+              <p className="text-center text-red-500 font-medium">
+                {error}
               </p>
             )}
 
-            {!loading &&
+            {!loading && !error &&
               comparisons.map((option, index) => (
                 <Card
                   key={option.bank}
